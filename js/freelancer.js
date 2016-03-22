@@ -4,13 +4,13 @@
 
 
 function init_masonry(){
-    
+
     var $container = $('#portfolio');
     var gutter = 12;
     var min_width = 150;
 
     $container.imagesLoaded( function(){
-        
+
         $container.masonry({
 
             itemSelector: '.portfolio-item',
@@ -41,7 +41,7 @@ $('a[href="#portfolio-tab"]').on('shown', function (e){
     window.setTimeout(function() {
 
         $(window).trigger('resize');
-    
+
     }, 1000);
 
 });
@@ -58,7 +58,7 @@ var mapInitOpts = {
 var map = new google.maps.Map(document.getElementById("my-location"), mapInitOpts);
 
 var marker = new google.maps.Marker({
-    position: myLatlng, 
+    position: myLatlng,
     map: map
 });
 
@@ -67,7 +67,7 @@ $('a[href="#contact-tab"]').on('shown', function (e){
 
     center_map();
 
-    google.maps.event.trigger(map, 'resize'); 
+    google.maps.event.trigger(map, 'resize');
     moveTo();
 
 });
@@ -78,7 +78,7 @@ $(window).on('resize', function (e){
 
 function center_map(){
     window.setTimeout(function() {
-        map.panTo(marker.getPosition()); 
+        map.panTo(marker.getPosition());
         }, 500);
 };
 
@@ -92,17 +92,14 @@ $(document).ready(function() {
          var rank = 0;
 
          var data_rank = host.data("rank");
-         if(data_rank) 
+         if(data_rank)
             rank = parseInt(data_rank);
 
          for(n=1; n<=5; n++) {
                 var star = $(document.createElement("i"));
 
-                star.addClass(n <= rank ? "icon-star" : "icon-star-empty");
+                star.addClass(n <= rank ? "fa fa-star" : "fa fa-star-o");
                 span.append(star);
          }
     });
 });
-
-
-
