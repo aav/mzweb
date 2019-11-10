@@ -46,41 +46,6 @@ $('a[href="#portfolio-tab"]').on('shown', function (e){
 
 });
 
-/* google maps */
-var myLatlng = new google.maps.LatLng(48.7218435,9.270561);
-
-var mapInitOpts = {
-    mapTypeId: google.maps.MapTypeId.ROADMAP,
-    center: myLatlng,
-    zoom: 12
-};
-
-var map = new google.maps.Map(document.getElementById("my-location"), mapInitOpts);
-
-var marker = new google.maps.Marker({
-    position: myLatlng,
-    map: map
-});
-
-
-$('a[href="#contact-tab"]').on('shown', function (e){
-
-    center_map();
-
-    google.maps.event.trigger(map, 'resize');
-    moveTo();
-
-});
-
-$(window).on('resize', function (e){
-    center_map();
-});
-
-function center_map(){
-    window.setTimeout(function() {
-        map.panTo(marker.getPosition());
-        }, 500);
-};
 
 $(document).ready(function() {
     $("h4.my-skill").each(function(ix) {
